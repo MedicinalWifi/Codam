@@ -22,3 +22,9 @@ int ft_toupper(int c)
         return(c);
     }
 }
+/*i checked if the char's ascii number is 
+in the range of lowercase alpha chars. 
+if it is, i am converting it to lower 
+range by subtracting 32 places to it in the 
+ascii table. if it is not a lower case char, 
+i do nothing. */

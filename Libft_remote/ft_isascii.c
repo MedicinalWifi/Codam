@@ -1,0 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_isascii.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lhop <lhop@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/11 13:01:47 by lhop          #+#    #+#                 */
+/*   Updated: 2022/10/11 13:01:47 by lhop          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+int ft_isascii(int c)
+{
+    if(c >= 0 && <= 177)
+    {
+        return(1);
+    }
+    else
+    {
+        return(0);
+    }
+}
+/*i checked if the char has a ascii number
+inbetween 0 and 177, which includes all 
+listed chars in the ascii table.*/

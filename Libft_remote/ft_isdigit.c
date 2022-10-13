@@ -21,3 +21,6 @@ int ft_isdigit(int c)
         return(0);
     }
 }
+/* i checked if the char has an ascii
+number in the range of digits. if it does, 
+i am returning a 1 for true.*/

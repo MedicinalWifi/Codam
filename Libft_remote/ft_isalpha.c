@@ -21,3 +21,6 @@ int ft_isalpha(int c)
         return(0);
     }
 }
+/*i checked if the char has an ascii number 
+in the range of alpha chars. if it does, 
+i'm returning a 1 value for true.*/

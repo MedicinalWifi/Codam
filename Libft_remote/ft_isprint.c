@@ -21,3 +21,6 @@ int ft_isprint(int c)
         return(0);
     }
 }
+/* i checked if the char has an ascii
+number in the range of printable chars. 
+if it does, i am returning 1 for true.*/
