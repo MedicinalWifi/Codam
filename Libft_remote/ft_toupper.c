@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:00:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/11 11:24:34 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/20 13:10:32 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@ int ft_toupper(int c)
         return(c);
     }
 }
-/*i checked if the char's ascii number is 
+
+/*
+ft_toupper: We're trying to convert lowercase chars to uppercase.
+
+1: i checked if the char's ascii number is 
 in the range of lowercase alpha chars. 
-if it is, i am converting it to lower 
+
+2: if it is, i am converting it to upper 
 range by subtracting 32 places to it in the 
-ascii table. if it is not a lower case char, 
-i do nothing. */
+ascii table. 
+
+3: if it is not a lower case char, 
+i do nothing and return the char unchanged.
+
+4: kthx.
+*/

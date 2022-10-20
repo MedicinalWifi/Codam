@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 13:01:47 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/11 13:01:47 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/20 13:27:11 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ int ft_isascii(int c)
         return(0);
     }
 }
-/*i checked if the char has a ascii number
-inbetween 0 and 177, which includes all 
-listed chars in the ascii table.*/
+/*
+
+1: i checked if the char has a ascii number inbetween 0 and 177, 
+which includes all listed chars in the ascii table.
+
+2: if it does, I return 1 for true.
+
+3: if it does not, I return 0 for false.
+
+4: kthx.
+*/

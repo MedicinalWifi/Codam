@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:51:32 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/11 11:54:49 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/20 13:27:49 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ int ft_isalpha(int c)
         return(0);
     }
 }
-/*i checked if the char has an ascii number 
-in the range of alpha chars. if it does, 
-i'm returning a 1 value for true.*/
+/*
+
+1: i checked if the char has an ascii number in the range of alpha chars. 
+
+2: if it does, i'm returning a 1 value for true.
+
+3: if it does not, I'm returning 0 for false.
+
+4: kthx.
+*/

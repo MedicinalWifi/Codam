@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:59:02 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/11 11:59:02 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/20 13:28:48 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,16 @@ int isalnum(int c)
         return(0);
    }
 }
-/* i used two previous functions to check for 
+
+/* 
+
+1: i used two previous functions to check for 
 alpha chars, and then for digit chars. 
-if coutcome of those are both true, 
-this superfunction is also true.*/
+
+2: if coutcome of those are both true, 
+this superfunction is also true, so I return 1.
+
+3: if the outcome for 1 or more is false, I return 0 for false.
+
+4: kthx.
+*/
