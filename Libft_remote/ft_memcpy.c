@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy_U.c                                      :+:    :+:            */
+/*   ft_memcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:41 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 14:26:41 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/21 14:22:22 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-void *ft_memcpy(void* dst, const void* src, int n)
+void *ft_memcpy(void* dst, const void* src, size_t n)
 {
-    int i;
+    size_t i;
     i = 0;
 
     while (i < n)

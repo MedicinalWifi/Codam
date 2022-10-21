@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_memcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/11 13:05:52 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/21 13:55:14 by lhop          ########   odam.nl         */
+/*   Created: 2022/10/20 14:26:38 by lhop          #+#    #+#                 */
+/*   Updated: 2022/10/21 15:05:45 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int memcmp(const void *s1, const void *s2, size_t n)
 {
-    if(c >= 32 && c <= 126)
+    int i;
+    i = 0;
+    int cmp;
+    cmp = 0;
+
+    while((unsigned char*)s1[i] != "\0" && (unsigned char*)s2[i] != "\0" && i <= len)
+    {
+       cmp += ((unsigned char*)s1[i]-(unsigned char*)s2[i]);
+       i++;
+    }
+
+    if (cmp > 0)
     {
         return(1);
     }
-    else
+    else if (cmp == 0)
     {
         return(0);
     }
+    else if (cmp < 0)
+    {
+        return(-1);
+    }
 }
-/* 
-1: i checked if the char has an ascii
-number in the range of printable chars. 
-
-2: if it does, i am returning 1 for true.
-
-3: if not, then I return 0 for false.
-
-4: kthx.
-*/

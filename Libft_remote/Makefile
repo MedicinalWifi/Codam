@@ -1,35 +1,38 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: lhop <lhop@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/14 12:33:37 by lhop          #+#    #+#                  #
-#    Updated: 2022/10/14 15:20:28 by lhop          ########   odam.nl          #
+#    Updated: 2022/10/21 13:53:11 by lhop          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= libft.a
+NAME		= libft.a
 
 
-SRCS		:= ft_isalnum.c ft_isalpha.c ft_isascii.c /
-				 ft_isdigit.c ft_isprint.c ft_strlcat.c /
-				 ft_strlen.c ft_strnstr.c ft_tolower.c /
-				 ft_toupper.c 
+SRCS		= ft_toupper.c ft_tolower.c ft_isalpha.c \
+				ft_isdigit.c ft_isalnum.c ft_isascii.c \
+				ft_isprint.c ft_strlen.c ft_strnstr.c \
+				ft_strlcat.c ft_strlcpy.c ft_strchr.c \
+				ft_strrchr.c ft_strncmp.c memchr.c \
+				ft_memcmp.c ft_memset.c ft_memcpy.c \
+				ft_memmove.c ft_atoi.c ft_bzero.c \
 
-OBJS		:= $(SRCS: %.c = %.o)
+OBJS		?= $(SRCS:.c=.o)
 
-CC			:= gcc
-CFLAGS		:= -Wall -Wextra -Werror
-CPPFLAGS	:= -I ../libft/libft.h
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+CPPFLAGS	= -I ../libft/libft.h
 
-RM			:= rm -f
+RM			= rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	AR -rcs $(NAME) $(OBJS)
 	$(info $(NAME) successfully created)
 
 %.o: %.c

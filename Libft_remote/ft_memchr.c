@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memchr_U.c                                      :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:35 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 15:23:20 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/21 14:28:23 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void ft_memchr(const void *s, int c, size_t n)
 {
@@ -19,7 +21,7 @@ void ft_memchr(const void *s, int c, size_t n)
     {
         if(s[i] == c)
         {
-            return((const void*)s + i);
+            return((const void*)s[i]);
         }
         i++;
     }

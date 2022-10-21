@@ -6,12 +6,12 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:59:02 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:28:48 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/21 14:26:38 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-int isalnum(int c)
+#include "libft.h"
+int ft_isalnum(int c)
 {
    int alphacheck;
    int digitcheck;

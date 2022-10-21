@@ -1,33 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strnstr.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lhop <lhop@student.codam.nl>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/13 12:29:46 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 12:48:13 by lhop          ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include <libft.h>
-
-char ft_strnstr(const char *hay, const char *needle, int len)
+char* ft_strnstr(const char *hay, const char *needle, size_t len)
 {
-    int i;
+    size_t i;
     int nlen;
     i = 0;
-    nlen = ft_strlen(*needle);
+    nlen = ft_strlen((char*)needle);
 
     if (nlen < 1)
     {
-        return(*hay);
+        return((char*)hay);
     }
     else
     {
         int ni;
         ni = 0;
-        while (*hay[i] != \0 && i <= len)
+        while (!hay[i] && i <= len)
         {
 
             while (hay[i] == needle[ni] && i <= len)
@@ -35,7 +23,7 @@ char ft_strnstr(const char *hay, const char *needle, int len)
                 if (ni == nlen)
                 {
                     i -= nlen;
-                    return ((char*)hay[i]);
+                    return ((char*)hay);
                 }
                 i++;
                 ni++;
