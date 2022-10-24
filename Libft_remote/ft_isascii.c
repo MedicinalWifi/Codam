@@ -6,20 +6,20 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 13:01:47 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/21 13:53:44 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:44:32 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if(c >= 0 && c <= 177)
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
+	if (c >= 0 && c <= 177)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 /*
 

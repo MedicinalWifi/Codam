@@ -6,20 +6,20 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:51:32 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:27:49 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:45:00 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if(c >= 65 && c <= 90 && c >= 97 && c <= 122)
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
+	if (c >= 65 && c <= 90 && c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 /*
 

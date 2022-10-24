@@ -6,21 +6,21 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:00:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:10:32 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 12:10:42 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if(c >= 97 && c <= 122)
-    {
-        c = c - 32;
-        return(c);
-    }
-    else
-    {
-        return(c);
-    }
+	if (c >= 97 && c <= 122)
+	{
+		c = c - 32;
+		return (c);
+	}
+	else
+	{
+		return (c);
+	}
 }
 
 /*

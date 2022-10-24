@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memmove_U.c                                     :+:    :+:            */
+/*   ft_strdup.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/20 14:26:43 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 14:26:43 by lhop          ########   odam.nl         */
+/*   Created: 2022/10/24 14:41:56 by lhop          #+#    #+#                 */
+/*   Updated: 2022/10/24 15:26:05 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(const char *s1, size_t n)
 {
-    
 }

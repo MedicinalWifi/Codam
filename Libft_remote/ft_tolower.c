@@ -6,20 +6,20 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:43:06 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/21 15:00:56 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:12:52 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if(c >= 65 && c <= 90)
-    {
-        return(c + 32);
-    }
-    else
-    {
-        return(c);
-    }
+	if (c >= 65 && c <= 90)
+	{
+		return (c + 32);
+	}
+	else
+	{
+		return (c);
+	}
 }
 /*
 ft_tolower: We're trying to convert uppercase chars to lowercase.

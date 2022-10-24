@@ -6,19 +6,20 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 13:08:45 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:12:19 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:32:26 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *string)
+int	ft_strlen(char *string)
 {
-    int i;
-    i = 0;
-    while (string[i] != '\0')
-    {
-        i++;
-    }
-    return(i);
+	int	i;
+
+	i = 0;
+	while (string[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 /* 
 strlen: we're trying to find the length of a string.

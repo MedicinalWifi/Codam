@@ -6,40 +6,40 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 12:49:49 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:10:50 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:23:45 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char ft_strrchr(const char *book, int letter)
+#include "libft.h"
+
+char	*ft_strrchr(const char *book, int letter)
 {
-    int i;
-    i = 0;
-    char* occurance;
-    int checksrch;
-    checksrch = 0;
-    int book_len;
-    book_len = ft_strlen(book);
+	char	*occurance;
+	int		i;
+	int		checksrch;
+	int		book_len;
 
-    while (i < book_len + 1)
-    {
-        if (book[i] == letter)
-        {
-            occurance = (char*)book+i;
-            checksrch++;
-        }
-        i++;
-    }
-
-    if (checksrch > 0)
-    {
-        return((char*)occurance);
-    }
-    else
-    {
-        return (NULL);
-    }
+	i = 0;
+	checksrch = 0;
+	book_len = ft_strlen ((char *)book);
+	while (i < book_len + 1)
+	{
+		if (book[i] == letter)
+		{
+			occurance = (char *)book + i;
+			checksrch++;
+		}
+		i++;
+	}
+	if (checksrch > 0)
+	{
+		return ((char *)occurance);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
-
 /*
 ft_strrchr: we are trying to find a char in a string, and return the
 last occurance of it in the string. 

@@ -6,20 +6,20 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:55:05 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 13:26:34 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:44:08 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if(c >= 48 && c <= 57)
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
+	if (c >= 48 && c <= 57)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 /* 
 1: i checked if the char has an ascii number in the range of digits. 

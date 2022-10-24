@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strncmp_U.c                                     :+:    :+:            */
+/*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:18:57 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 14:51:06 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 15:22:45 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strncmp(const char *s1, const char *s2, size_t len)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
-    int i;
-    i = 0;
-    int cmp;
-    cmp = 0;
+	size_t	i;
+	int		cmp;
 
-    while(s1[i] != "\0" && s1[i] != "\0" && i <= len)
-    {
-       cmp += (s1[i]-s2[i]);
-       i++;
-    }
-
-    if (cmp > 0)
-    {
-        return(1);
-    }
-    else if (cmp = 0)
-    {
-        return(0);
-    }
-    else if (cmp < 0)
-    {
-        return(-1);
-    }
+	i = 0;
+	cmp = 0;
+	while (s1[i] != '\0' && s1[i] != '\0' && i <= len)
+	{
+		cmp += (s1[i] - s2[i]);
+		i++;
+	}
+	if (cmp > 0)
+	{
+		return (1);
+	}
+	else if (cmp == 0)
+	{
+		return (0);
+	}
+	else if (cmp < 0)
+	{
+		return (-1);
+	}
+	return (0);
 }
 
 /* 

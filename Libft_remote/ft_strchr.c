@@ -6,28 +6,28 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 12:06:13 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/20 12:37:37 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:37:30 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char ft_strchr(const char *book, int letter)
+#include "libft.h"
+
+char	*ft_strchr(const char *book, int letter)
 {
-    int i;
+	int	i;
+	int	book_len;
 
-    i = 0;
-
-    int book_len;
-    book_len = ft_strlen(book);
-
-    while (i < book_len + 1)
-    {
-        if (book[i] == letter)
-        {
-            return((char*) book[i]);
-        }
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	book_len = ft_strlen ((char *)book);
+	while (i < book_len + 1)
+	{
+		if (book[i] == letter)
+		{
+			return ((char *)(book + i));
+		}
+		i++;
+	}
+	return (NULL);
 }
 /* 
 1: I set an index to cycle through the source(book)
@@ -42,6 +42,8 @@ I add the plus 1 so that the terminating character is included.
 is the same as the letter to be searched. 
 
 5: if it is, I return that place in the book. 
+Not sure why return((char*)(book + i)) works, 
+and return((char*)(book[i])) does not.
 
 6: If the letter is not found, 'NULL' is returned.
 
