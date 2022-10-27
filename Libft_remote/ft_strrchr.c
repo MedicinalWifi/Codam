@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 12:49:49 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 13:23:45 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/25 12:03:58 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_strrchr(const char *book, int letter)
 {
-	char	*occurance;
 	int		i;
 	int		checksrch;
 	int		book_len;
@@ -26,14 +25,13 @@ char	*ft_strrchr(const char *book, int letter)
 	{
 		if (book[i] == letter)
 		{
-			occurance = (char *)book + i;
-			checksrch++;
+			checksrch = i;
 		}
 		i++;
 	}
 	if (checksrch > 0)
 	{
-		return ((char *)occurance);
+		return (&book[checksrch]);
 	}
 	else
 	{

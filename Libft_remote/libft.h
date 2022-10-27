@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:27:09 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 16:18:40 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/27 11:43:30 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *s1, size_t n);
+char	*ft_strdup(const char *s1);
 
 #endif
 
