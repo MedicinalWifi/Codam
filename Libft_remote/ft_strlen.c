@@ -6,11 +6,13 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 13:08:45 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 13:32:26 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 14:36:16 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *string)
+#include "libft.h"
+
+size_t	ft_strlen(char *string)
 {
 	int	i;
 

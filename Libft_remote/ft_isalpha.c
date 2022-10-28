@@ -6,13 +6,13 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:51:32 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 13:45:00 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 12:30:28 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if (c >= 65 && c <= 90 && c >= 97 && c <= 122)
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{
 		return (1);
 	}
@@ -21,6 +21,7 @@ int	ft_isalpha(int c)
 		return (0);
 	}
 }
+
 /*
 
 1: i checked if the char has an ascii number in the range of alpha chars. 

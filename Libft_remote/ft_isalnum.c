@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:59:02 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 13:46:39 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 12:47:35 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isalnum(int c)
 
 	alphacheck = ft_isalpha(c);
 	digitcheck = ft_isdigit(c);
-	if (alphacheck == 1 && digitcheck == 1)
+	if (alphacheck == 1 || digitcheck == 1)
 	{
 		return (1);
 	}

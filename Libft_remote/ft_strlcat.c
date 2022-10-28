@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 12:34:33 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 14:10:37 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 15:15:40 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(const char *src, char *dst, size_t dstsize)
 	dst_len = ft_strlen ((char *)dst);
 	strlcat = src_len + dst_len + 1;
 	i = 0;
-	while (dst[i] != '\0' && i <= dstsize - 1)
+	while (dst[i] != '\0' && i <= dstsize - src_len - 1)
 	{
 		dst[i] = src[i];
 		i++;

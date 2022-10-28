@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:25 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/27 14:03:31 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 13:30:51 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_checkspace(const char *str);
 int	ft_checkplusminus(const char *str, int i);
-int	ft_numstart(const char *str);
 int	ft_makenum(const char *str, int numstart, int posneg);
 
 int	ft_atoi(const char *str)
@@ -25,7 +24,12 @@ int	ft_atoi(const char *str)
 
 	i = ft_checkspace(str);
 	posneg = ft_checkplusminus(str, i);
-	i++;
+	if (!str)
+		return (0);
+	if (posneg < -1)
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
 	if (str[i] >= '0' && str[i] <= '9')
 	{
 		num = ft_makenum(str, i, posneg);
@@ -54,8 +58,12 @@ int	ft_checkplusminus(const char *str, int i)
 {
 	if (str[i] == '-')
 		return (-1);
-	else
+	if (str[i] == '+')
 		return (1);
+	if (str[i] >= '0' || str[i] <= '9')
+		return (1);
+	else
+		return (-2);
 }
 
 int	ft_checkspace(const char *str)

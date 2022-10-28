@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 12:49:49 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/25 12:03:58 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 14:34:00 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,27 @@ char	*ft_strrchr(const char *book, int letter)
 {
 	int		i;
 	int		checksrch;
-	int		book_len;
 
 	i = 0;
-	checksrch = 0;
-	book_len = ft_strlen ((char *)book);
-	while (i < book_len + 1)
+	checksrch = -1;
+	while (book[i])
 	{
-		if (book[i] == letter)
+		if (book[i] == (char)letter)
 		{
 			checksrch = i;
 		}
 		i++;
 	}
-	if (checksrch > 0)
+	if (checksrch >= 0)
 	{
-		return (&book[checksrch]);
+		return ((char *)(book + checksrch));
 	}
 	else
 	{
 		return (NULL);
 	}
 }
+
 /*
 ft_strrchr: we are trying to find a char in a string, and return the
 last occurance of it in the string. 

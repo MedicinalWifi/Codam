@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 14:41:36 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/27 15:06:18 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 11:28:49 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
+
 	ptr = malloc(count * size);
-	bzero(ptr, count * size);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }
 

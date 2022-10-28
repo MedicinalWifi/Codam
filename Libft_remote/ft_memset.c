@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:46 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/24 14:37:41 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 14:57:20 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	*ft_memset(void *b, int c, size_t len)
 	size_t	i;
 
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
-		*(int *)(b + i) = (int) c;
+		*(unsigned char *)(b + i) = c;
 		i++;
 	}
-	return ((void *)b);
+	return (b);
 }
 
 /*

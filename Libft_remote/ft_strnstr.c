@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 13:10:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/27 15:24:09 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/28 11:43:55 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,25 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	i = 0;
 	nlen = ft_strlen((char *)needle);
 	if (nlen < 1)
-	{
 		return ((char *)hay);
-	}	
-	else
+	while (hay[i] != '\0' && i <= len)
 	{
-		while (hay[i] != '\0' && i <= len)
+		while (hay[i] == needle[ni] && i <= len)
 		{
-			while (hay[i] == needle[ni] && i <= len)
+			if (ni == nlen)
 			{
-				if (ni == nlen)
-				{
-					i -= nlen;
-					return (*(char *)(hay + i));
-				}
-				i++;
-				ni++;
+				i -= nlen;
+				return ((char *)hay + i);
 			}
-			ni = 0;
 			i++;
+			ni++;
 		}
-		return (NULL);
+		ni = 0;
+		i++;
 	}
+	return (NULL);
 }
+
 /*
 1: I created an index to count the places in the haystack.
 
