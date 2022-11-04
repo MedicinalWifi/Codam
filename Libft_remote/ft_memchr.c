@@ -6,12 +6,11 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:35 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/27 15:14:54 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/31 17:07:13 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memchr(const void	*s, int c, size_t n)
 {
@@ -22,13 +21,12 @@ void	*ft_memchr(const void	*s, int c, size_t n)
 	{
 		if ((int)(s + i) == c)
 		{
-			return (unsigned char *)(s + i);
+			return ((unsigned char *)(s + i));
 		}
 		i++;
 	}
 	return (NULL);
 }
-
 
 /* 
 memchr: this returns a pointer to memory where int c occurred in string s.

@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:38 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/28 15:27:05 by lhop          ########   odam.nl         */
+/*   Updated: 2022/10/31 13:46:03 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	}
 	if (cmp == '0')
-	{
 		return (0);
-	}
 	else
 	{
 		while ((char *)(s1 + i) != '\0' && (char *)(s2 + i) != '\0' && i < n)
@@ -40,5 +38,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			i++;
 		}
 	}
-	return(0);
+	return (0);
 }
