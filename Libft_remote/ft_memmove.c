@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:43 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/04 11:58:53 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/07 15:17:37 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 		return ((void *)dst);
 	}
-	if (dst < src)
-		{
-			while (i < len)
-			{
-				*((char *)(dst + i)) = *((char *)(s + i));
-				i++;
-			}
-			return ((void *)dst);
-		}
-	return (NULL);
+	while (dst < src && i < len)
+	{
+		*((char *)(dst + i)) = *((char *)(s + i));
+		i++;
+	}
+	return ((void *)dst);
 }

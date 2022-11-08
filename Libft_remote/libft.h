@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:27:09 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/04 10:03:35 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/07 15:00:19 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-size_t	ft_strlen(char *string);
+size_t	ft_strlen(const char *string);
 char	*ft_strnstr(const char *hay, const char *needle, size_t len);
-size_t	ft_strlcat(const char *src, char *dst, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strchr(const char *book, int letter);
 char	*ft_strrchr(const char *book, int letter);

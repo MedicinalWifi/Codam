@@ -11,25 +11,83 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+int		ft_checkset1(char const *s1, char const *set, size_t set_len, size_t str_len);
+char	*ft_strtrim(char const *s1, char const *set);
+int		ft_checkset2(char const *s1, char const *set, size_t set_len, size_t str_len);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	set_len;
-	char	*ptr;
+	size_t	str_len;
+	size_t	start_i;
+	size_t	end_i;
 	char	*newstring;
-	size_t	i;
+	int		i;
 
 	i = 0;
-	set_len = ft_strlen((char *)set);
-	ptr = ft_strnstr(s1, set, set_len);
-	newstring = malloc((set_len + 1) * sizeof(char));
-	if (newstring == NULL)
-		return (NULL);
-	while (i <= set_len)
+	set_len = ft_strlen(set);
+	str_len = ft_strlen(s1);
+	start_i = ft_checkset1(s1, set, set_len, str_len);
+	end_i = ft_checkset2(s1, set, set_len, str_len);
+	newstring = malloc(((str_len - start_i) - end_i + 1) * sizeof(char));
+	while (i < ((str_len - start_i) - end_i))
 	{
-		newstring[i] = *ptr;
-		ptr++;
-		i++;
+		
 	}
-	return (newstring);
+}
+
+int	ft_checkset1(char const *s1, char const *set, size_t set_len, size_t str_len)
+{
+	size_t	i;
+	size_t si;
+	size_t check;
+
+	check = 0;
+	si = 0;
+	i = 0;
+	while (i < str_len)
+	{
+		while (si < set_len)
+		{
+			if (s1[i] == set[ii])
+			{
+				i++;
+				check++;
+			}
+			si++;
+		}
+		if (check > 0)
+			si = 0;
+		if (check == 0)
+			return (i);
+	}
+	return (i);
+}
+
+int	ft_checkset2(char const *s1, char const *set, size_t set_len, size_t str_len)
+{
+	size_t	i;
+	size_t	si;
+	size_t	check;
+
+	check = 0;
+	si = 0;
+	i = ft_strlen(s1);
+	while (i >= 0)
+	{
+		while (si < set_len)
+		{
+			if (s1[i] == set[ii])
+			{
+				i--;
+				check++;
+			}
+			si++;
+		}
+		if (check > 0)
+			si = 0;
+		if (check == 0)
+			return (i);
+	}
+	return (check);
 }

@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 12:49:49 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/28 14:34:00 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/07 15:44:59 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 char	*ft_strrchr(const char *book, int letter)
 {
 	int		i;
-	int		checksrch;
+	int		check;
 
 	i = 0;
-	checksrch = -1;
+	check = -1;
+	if ((char)letter == '\0')
+		return ((char *)book + (ft_strlen(book)));
 	while (book[i])
 	{
 		if (book[i] == (char)letter)
 		{
-			checksrch = i;
+			check = i;
 		}
 		i++;
 	}
-	if (checksrch >= 0)
+	if (check >= 0)
 	{
-		return ((char *)(book + checksrch));
+		return ((char *)(book + check));
 	}
 	else
 	{

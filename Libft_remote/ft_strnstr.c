@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 13:10:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/28 11:43:55 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/07 18:07:01 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,31 @@
 char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 {
 	size_t	i;
-	int		nlen;
-	int		ni;
+	size_t	i2;
+	size_t	hay_len;
+	size_t	needle_len;
+	char	*check;
 
-	ni = 0;
 	i = 0;
-	nlen = ft_strlen((char *)needle);
-	if (nlen < 1)
+	i2 = 0;
+	hay_len = ft_strlen(hay);
+	needle_len = ft_strlen(needle);
+	if (needle_len <= 0)
 		return ((char *)hay);
-	while (hay[i] != '\0' && i <= len)
+	while (i + 1 <= len && i < hay_len)
 	{
-		while (hay[i] == needle[ni] && i <= len)
+		while (hay[i] == needle[i2] && i + 1 <= len)
 		{
-			if (ni == nlen)
+			check = ((char *)hay + i);
+			while (hay[i] == needle[i2] && i + 1 <= len)
 			{
-				i -= nlen;
-				return ((char *)hay + i);
+				i2++;
+				i++;
+				if (i2 == needle_len)
+					return (check);
 			}
-			i++;
-			ni++;
+			i2 = 0;
 		}
-		ni = 0;
 		i++;
 	}
 	return (NULL);

@@ -21,7 +21,7 @@ char	*ft_strchr(const char *book, int letter)
 	book_len = ft_strlen ((char *)book);
 	while (i < book_len + 1)
 	{
-		if (book[i] == letter)
+		if (book[i] == (char)letter)
 		{
 			return ((char *)(book + i));
 		}

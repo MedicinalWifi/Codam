@@ -6,22 +6,22 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:35 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/31 17:07:13 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/07 16:14:00 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void	*s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (i <= n)
+	while (i < n)
 	{
-		if ((int)(s + i) == c)
+		if (*((unsigned char *)(s + i)) == (unsigned char)c)
 		{
-			return ((unsigned char *)(s + i));
+			return ((void *)s + i);
 		}
 		i++;
 	}
