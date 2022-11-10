@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 13:10:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/07 18:07:01 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/10 15:12:46 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	size_t	i2;
 	size_t	hay_len;
 	size_t	needle_len;
-	char	*check;
+	size_t	check;
 
 	i = 0;
 	i2 = 0;
@@ -26,18 +26,21 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	needle_len = ft_strlen(needle);
 	if (needle_len <= 0)
 		return ((char *)hay);
-	while (i + 1 <= len && i < hay_len)
+	if (len < 0)
+		len = hay_len;
+	while (i + 1 <= len && i <= hay_len)
 	{
 		while (hay[i] == needle[i2] && i + 1 <= len)
 		{
-			check = ((char *)hay + i);
+			check = i;
 			while (hay[i] == needle[i2] && i + 1 <= len)
 			{
 				i2++;
 				i++;
 				if (i2 == needle_len)
-					return (check);
+					return ((char *)(hay + check));
 			}
+			i = check + 1;
 			i2 = 0;
 		}
 		i++;
@@ -45,31 +48,48 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	return (NULL);
 }
 
+
 /*
-1: I created an index to count the places in the haystack.
+1: I created an index, i, to count the places in the haystack.
 
-2: I created an index, nlen, to know the length of needle.
+2: I created an index, i2, to count places in the needle.
 
-3: I create a condition to check if the search query is empty.
-In that case, the whole haystack is returned.
+3: I created a variable for the hay length
 
-4: I create an index for moving through the needle. 
+4: I craeted a variable for the needle length.
 
-5: I create a while loop to check the hay until null or length 
-is reached. 
+5: I created a variable for the string detection spot.
 
-6: I create another whileloop that compares hay to needle.
+6: I set all my indexes to 0
 
-7: If the needle index reaches its full length while in the
-comparison loop, I return a pointer to the start of the needle.
-(i - nlen)
+7: I find the lengths of the hay and the needle.
 
-8: If it exits the loop before nlen was completed, I reset
-needle index to 0, so that the previous whileloop can keep
-searching for the needle from its starting point again.
+8: I set a condition for if the needle is empty, in which case
+it returns the whole haystack.
 
-9: if the whileloop ends before the needle is found, 
-NULL is returned. 
+9: I create my first while loop, to the condition of i + 1 being 
+less or equal to len. We only want to search for len amount of chars.
+Len however, is a size_t, which is a format that starts at 1 instead
+of 0. I've set my own size_t to start at 0, so I use 'i + 1' to have 
+the the len and i refer to the same spot.
 
-10: kthx.
+The second condition is i being less than hay_len, which is the
+length of the string we're searching.
+
+10: In this while-loop, I put a second while loop, 
+to the condition of hay[i] being equal to needle[i2].
+i2 is 0, so it starts at the beginning of the needle string.
+Another condition is while i + 1 is still less than len.
+I immediately mark the spot with 'check', to know where
+it started being the same.
+
+11: this will keep searching and iterating up, as long as they 
+are equal.
+
+12: if at some point i2 is equal to needle-len, this means the 
+entire string was found. The original checkpoint is then returned.
+
+13: if they are no longer equal, 
+
+
 */

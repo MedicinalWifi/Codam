@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:43 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/07 15:17:37 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/09 14:17:31 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	s = (char *)src;
 	d = (char *)dst;
-	if (!dst || !src)
-		return (dst);
 	if (dst > src)
 	{
 		while (len > 0)

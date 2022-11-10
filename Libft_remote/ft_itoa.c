@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/31 15:35:03 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/01 12:02:49 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/09 15:16:22 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_putnbr(int n, int i, int ii)
 	if (n < 0 && ii == 0)
 	{
 		result[i] = '-';
-		ii++;
+		i++;
 		ft_putnbr(n, i, ii);
 	}
 	else if (n > 9)
