@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:27:09 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/10 15:24:35 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/11 12:04:37 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_itoa(int n);
 //void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-//void	ft_putendl_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 //void	ft_putnbr_fd(int n, int fd);
 
 #endif
