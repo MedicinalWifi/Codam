@@ -14,30 +14,43 @@
 
 char	**ft_split(char const *s, char c)
 {
-	char	*resultarray[2];
 	int		i;
-	int		s_len;
-	int		split;
+	int		string_i;
+	int		string_len;
+	char	**answer;
+	int		strlen;
+	char	*string;
+	char	*set;
 
+	set = &c;
 	i = 0;
-	s_len = ft_strlen ((char *)s);
-	while (i < s_len + 1)
+	string_i = 0;
+	s = ft_strtrim(s, set);//trimming the deliminating characters off the front and end.
+	string_len = ft_strlen(s);//checking the length of the string.
+	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			split = i;
-		i++;
+		while (s[i] != c)
+		{
+			string_len++;
+			i++;
+		}
+		answer[string_i] = malloc((string_len + 1 )* sizeof(char));
+		answer[string_i] = ft_stringwrite((i - string_len), string_len, s, answer, string_i);
+		string_i++;
 	}
-	resultarray[0] = malloc((split + 1) * sizeof(char));
-	resultarray[1] = malloc(((s_len - split) + 1) * sizeof(char));
-	if (resultarray[0] == NULL || resultarray [1] == NULL)
-		return (NULL);
-	i = 0;
-	while (split < (s_len - split))
+}
+
+char	*ft_stringwrite(int i, int string_len, char	*s, char *answer, int string_i)
+{
+	int	ii;
+
+	ii = 0
+	while (i <= string_len)
 	{
-		((char *)resultarray[0])[i] = ((char *)s)[i];
-		((char *)resultarray[1])[i] = ((char *)s)[split];
+		answer[string_i][ii] = s[i];
 		i++;
-		split++;
+		ii++;
 	}
-	return ((char **)resultarray[2]);
+	answer[string_i][ii] = '\0';
+	return (answer);
 }

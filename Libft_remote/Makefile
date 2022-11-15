@@ -6,7 +6,7 @@
 #    By: lhop <lhop@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/14 12:33:37 by lhop          #+#    #+#                  #
-#    Updated: 2022/11/11 12:58:43 by lhop          ########   odam.nl          #
+#    Updated: 2022/11/15 15:29:25 by lhop          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ SRCS		= ft_toupper.c ft_tolower.c ft_isalpha.c \
 				ft_memmove.c ft_atoi.c ft_bzero.c \
 				ft_calloc.c ft_strdup.c ft_putendl_fd.c\
 				ft_substr.c ft_strjoin.c ft_putchar_fd.c\
-				ft_putstr_fd.c ft_itoa.c #ft_split.c \
-				ft_strmapi.c #ft_striteri.c \
-				#ft_putnbr_fd.c ft_strtrim.c \
+				ft_putstr_fd.c ft_itoa.c ft_putnbr_fd.c \
+				ft_striteri.c ft_strmapi.c ft_strtrim.c \
+				ft_split.c \
 
 OBJS		?= $(SRCS:.c=.o)
 

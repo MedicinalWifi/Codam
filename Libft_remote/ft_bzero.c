@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 14:43:38 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/28 13:46:34 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/14 12:22:43 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(s + i) = 0;
+		*(char *)(s + i) = '\0';
 		i++;
 	}
 }
