@@ -6,13 +6,34 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 13:10:23 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/11 12:21:36 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/22 11:23:28 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* DESCRIPTION
+     The strstr() function locates the first occurrence of the null-terminated
+     string needle in the null-terminated string haystack.
+
+     The strcasestr() function is similar to strstr(), but ignores the case of
+     both strings.
+
+     The strnstr() function locates the first occurrence of the null-termi-
+     nated string needle in the string haystack, where not more than len char-
+     acters are searched.  Characters that appear after a `\0' character are
+     not searched.  Since the strnstr() function is a FreeBSD specific API, it
+     should only be used when portability is not a concern.
+
+     While the strcasestr() function uses the current locale, the
+     strcasestr_l() function may be passed a locale directly. See xlocale(3)
+     for more information.
+
+RETURN VALUES
+     If needle is an empty string, haystack is returned; if needle occurs
+     nowhere in haystack, NULL is returned; otherwise a pointer to the first
+     character of the first occurrence of needle is returned. */
 #include "libft.h"
 
-char	*ft_strnstr(const char *hay, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	i2;
@@ -20,17 +41,17 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	i = 0;
 	i2 = 0;
 	if (ft_strlen(needle) <= 0)
-		return ((char *)hay);
-	while (i + 1 <= len && i <= (ft_strlen(hay)))
+		return ((char *)haystack);
+	while (i + 1 <= len && i <= (ft_strlen(haystack)))
 	{
-		while (hay[i] == needle[i2] && i + 1 <= len)
+		while (haystack[i] == needle[i2] && i + 1 <= len)
 		{
-			while (hay[i] == needle[i2] && i + 1 <= len)
+			while (haystack[i] == needle[i2] && i + 1 <= len)
 			{
 				i2++;
 				i++;
 				if (i2 == (ft_strlen(needle)))
-					return ((char *)(hay + (i - ft_strlen(needle))));
+					return ((char *)(haystack + (i - ft_strlen(needle))));
 			}
 			i = (i - i2) + 1;
 			i2 = 0;

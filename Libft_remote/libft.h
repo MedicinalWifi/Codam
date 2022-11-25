@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:27:09 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/15 15:28:53 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/22 11:38:39 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-size_t	ft_strlen(const char *string);
-char	*ft_strnstr(const char *hay, const char *needle, size_t len);
+size_t	ft_strlen(const char *s);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
-char	*ft_strchr(const char *book, int letter);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *book, int letter);
-int		ft_strncmp(const char *s1, const char *s2, size_t len);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memset(void *b, int c, size_t len);

@@ -6,7 +6,7 @@
 #    By: lhop <lhop@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/14 12:33:37 by lhop          #+#    #+#                  #
-#    Updated: 2022/11/15 15:29:25 by lhop          ########   odam.nl          #
+#    Updated: 2022/11/22 13:16:18 by lhop          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,6 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< 
 	$(info successfully created $@)
-#The % sign specifies 1 instance of a .o file. 
-#The command %.o : %.c creates pairs of the same name.
-#"with each .c file, a matching .o file will be made"
-#-o means to not remake the file, or any changes because of it.
-#"info" is a command to print text. Here it says a file was created.
-
 
 clean:
 	$(RM) $(OBJS)
@@ -61,3 +55,10 @@ re:
 	$(MAKE) all
 
 .PHONY: clean fclean re all 
+
+#The % sign specifies 1 instance of a file. 
+#The command %.o : %.c creates pairs of the same name.
+#"with each .c file, a matching .o file will be made"
+#-o means to not remake the file, or any changes because of it.
+#-c ? What it mean?
+#"info" is a command to print text. Here it says a file was created.

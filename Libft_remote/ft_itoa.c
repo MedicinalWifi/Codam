@@ -6,16 +6,24 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/31 15:35:03 by lhop          #+#    #+#                 */
-/*   Updated: 2022/11/14 14:44:11 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/22 13:06:39 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Function name ft_itoa
+Prototype 				char *ft_itoa(int n);
+Turn in files			-
+Parameters 				n: the integer to convert.
+Return value 			The string representing the integer.
+						NULL if the allocation fails.
+External functs. 		malloc
+Description 			Allocates (with malloc(3)) and returns a string
+						representing the integer received as an argument.
+						Negative numbers must be handled. */
 #include "libft.h"
-/* #include <stdio.h>
-#include <stdlib.h> */
 
-char	*ft_itoa(int n);
-int		ft_nbr_len(long n);
+char			*ft_itoa(int n);
+static int		ft_nbr_len(long n);
 
 char	*ft_itoa(int n)
 {
@@ -46,7 +54,7 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-int	ft_nbr_len(long n)
+static int	ft_nbr_len(long n)
 {
 	size_t	i;
 

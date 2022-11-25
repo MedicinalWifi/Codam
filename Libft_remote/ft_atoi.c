@@ -6,15 +6,27 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:26:25 by lhop          #+#    #+#                 */
-/*   Updated: 2022/10/28 13:30:51 by lhop          ########   odam.nl         */
+/*   Updated: 2022/11/22 13:07:08 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* int atoi(const char *str);
+ DESCRIPTION
+     The atoi() function converts the initial portion of the string pointed to
+     by str to int representation.
+
+     It is equivalent to:
+
+           (int)strtol(str, (char **)NULL, 10);
+
+     While the atoi() function uses the current locale, the atoi_l() function
+     may be passed a locale directly. See xlocale(3) for more information.
+	  */
 #include "libft.h"
 
-int	ft_checkspace(const char *str);
-int	ft_checkplusminus(const char *str, int i);
-int	ft_makenum(const char *str, int numstart, int posneg);
+static int	ft_checkspace(const char *str);
+static int	ft_checkplusminus(const char *str, int i);
+static int	ft_makenum(const char *str, int numstart, int posneg);
 
 int	ft_atoi(const char *str)
 {
@@ -41,7 +53,7 @@ int	ft_atoi(const char *str)
 	}
 }
 
-int	ft_makenum(const char *str, int i, int posneg)
+static int	ft_makenum(const char *str, int i, int posneg)
 {
 	int	num;
 
@@ -54,7 +66,7 @@ int	ft_makenum(const char *str, int i, int posneg)
 	return (num * posneg);
 }
 
-int	ft_checkplusminus(const char *str, int i)
+static int	ft_checkplusminus(const char *str, int i)
 {
 	if (str[i] == '-')
 		return (-1);
@@ -66,7 +78,7 @@ int	ft_checkplusminus(const char *str, int i)
 		return (-2);
 }
 
-int	ft_checkspace(const char *str)
+static int	ft_checkspace(const char *str)
 {
 	int	i;
 
