@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/02 11:43:10 by lhop          #+#    #+#                 */
-/*   Updated: 2022/12/02 14:02:52 by lhop          ########   odam.nl         */
+/*   Updated: 2022/12/05 11:19:25 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,8 @@ int get_biggest_package(char *input)
 		while (!(input[i] == '\n' && input[i + 1] == '\n') && input[i] != '\0')
 		{
 			printf("Counting Through Packages. Current Package: %i\n", i);
-			if (i > 10460)
-				printf("Counting through last 2 packages.");
 			package_food_count = get_food_count(input, i);
-			if (i > 10460)
-				printf("It got past the food count.");
 			package_calories = calculate_package_calories(input, package_food_count, i);
-			if (i > 10460)
-				printf("It got past the counting function.");
 			while (!(input[i] == '\n' && input[i + 1] == '\n') && input[i] != '\0')
 				i++;
 		}
@@ -96,7 +90,7 @@ int get_food_count(char *input, int i)
 	int	food_count;
 	
 	food_count = 0;
-	while (!(input[i] == '\n' && input[i + 1] == '\n'))
+	while (input[i] && !(input[i] == '\n' && input[i + 1] == '\n'))
 	{
 		if (input[i] && input[i] != '\n')
 		{
