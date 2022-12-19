@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   crate_rearrangement.c                              :+:    :+:            */
+/*   crate_rearrangement9001.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/09 12:18:10 by lhop          #+#    #+#                 */
-/*   Updated: 2022/12/15 13:03:25 by lhop          ########   odam.nl         */
+/*   Updated: 2022/12/15 13:54:07 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	**assign_stack_contents(char **stacks);
 char 	**rearrange_boxes(char **stacks, char *text);
 char	**get_new_stack_arrangement(char **stacks, int move_amount, int src_stack_num, int dst_stack_num);
 char	*get_last_box(char **stacks, char *result_string);
+char	**multiple_crate_arrangement(char **stacks, int move_amount, int src_stack_num, int dst_stack_num);
 
 char	*crate_rearrangement_stack_result(char *text)
 {
@@ -99,7 +100,7 @@ char **rearrange_boxes(char **stacks, char *text)
 				if (text[i + 1] != ' ')
 					move_amount = move_amount * 10;
 				i++;
-				/* printf("The move amount is: %i.\n", move_amount); */
+				printf("The move amount is: %i.\n", move_amount);
 			}
 			i = i + 6;
 			/* printf("i is set to %c\n", text[i]); */
@@ -121,13 +122,16 @@ char **rearrange_boxes(char **stacks, char *text)
 				i++;
 				/* printf("The destination stack is: %i.\n", dst_stack_num); */
 			}
-			stacks = get_new_stack_arrangement(stacks, move_amount, src_stack_num, dst_stack_num);
+			if (move_amount == 1)
+				stacks = get_new_stack_arrangement(stacks, move_amount, src_stack_num, dst_stack_num);
+			else 
+				stacks = multiple_crate_arrangement(stacks, move_amount, src_stack_num, dst_stack_num);
 			move_amount = 0;
 			src_stack_num = 0;
 			dst_stack_num = 0;
-			/* printf("i is set to %c\n", text[i]); */
+			/* printf("i is set to %c\n", text[i]); */ 
 		}//end of instruction line.
-/* 		printf("Successfully applied a line of instructions.\n\n"); */
+		/* printf("Successfully applied a line of instructions.\n\n"); */
 		i++;
 	}//end of all instruction lines.
 	return (stacks);
@@ -145,8 +149,8 @@ char	**get_new_stack_arrangement(char **stacks, int move_amount, int src_stack_n
 	printf("moving %i amount of crates from stack %i to stack %i.\n", move_amount, src_stack_num, dst_stack_num);
 	while (move_amount > 0)
 	{
-		/* printf("Trying to move '%c', ", stacks[src_stack_num - 1][src_stack_strlen - 1]);
-		printf("from stack %i to stack %i\n", src_stack_num, dst_stack_num); */
+		printf("Trying to move '%c', ", stacks[src_stack_num - 1][src_stack_strlen - 1]);
+		printf("from stack %i to stack %i\n", src_stack_num, dst_stack_num);
 		
 		stacks[dst_stack_num - 1][dst_stack_strlen] = stacks[src_stack_num - 1][src_stack_strlen - 1];
 		stacks[src_stack_num - 1][src_stack_strlen - 1]= '\0';
@@ -156,11 +160,41 @@ char	**get_new_stack_arrangement(char **stacks, int move_amount, int src_stack_n
 		move_amount--;
 	}
 	printf("Move successful. (:\n");
-	/* printf("Stack %i after: %s\n", src_stack_num, stacks[src_stack_num - 1]); */
-/* 	printf("Stack %i after: %s\n", dst_stack_num, stacks[dst_stack_num - 1]); */
+	printf("Stack %i after: %s\n", src_stack_num, stacks[src_stack_num - 1]);
+	printf("Stack %i after: %s\n", dst_stack_num, stacks[dst_stack_num - 1]);
 	return (stacks);
 }
 
+char	**multiple_crate_arrangement(char **stacks, int move_amount, int src_stack_num, int dst_stack_num)
+{
+	int		src_stack_strlen;
+	int		dst_stack_strlen;
+	int		i;
+	int		i_dup;
+
+	src_stack_strlen = (int)strlen(stacks[src_stack_num - 1]);
+	dst_stack_strlen = (int)strlen(stacks[dst_stack_num - 1]);
+	i = src_stack_strlen - move_amount;
+	i_dup = i;
+	printf("moving %i amount of crates from stack %i to stack %i.\n", move_amount, src_stack_num, dst_stack_num);
+	while (stacks[src_stack_num - 1][i] != '\0')
+	{
+		stacks[dst_stack_num - 1][dst_stack_strlen] = stacks[src_stack_num - 1][i];
+		
+		dst_stack_strlen++;
+		i++;
+	}
+	while (move_amount > 0)
+	{
+		stacks[src_stack_num - 1][src_stack_strlen - 1] = '\0';
+		src_stack_strlen--;
+		move_amount--;
+	}
+	printf("Move successful. (:\n");
+	printf("Stack %i after: %s\n", src_stack_num, stacks[src_stack_num - 1]);
+	printf("Stack %i after: %s\n", dst_stack_num, stacks[dst_stack_num - 1]);
+	return (stacks);
+}
 char	*get_last_box(char **stacks, char *result_string)
 {
 	int 	i;
