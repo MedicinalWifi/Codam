@@ -6,131 +6,48 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/01 14:21:42 by lhop          #+#    #+#                 */
-/*   Updated: 2023/01/05 14:59:08 by lhop          ########   odam.nl         */
+/*   Updated: 2023/01/06 12:56:56 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Program name 	libftprintf.a
-Turn in files 		Makefile, *.h, /* /*.h, *.c, /* /*.c
-Makefile 			NAME, all, clean, fclean, re
-External functs. 	malloc, free, write,
-					va_start, va_arg, va_copy, va_end
-Libft authorized 	Yes
-Description 		Write a library that contains ft_printf(), a
-					function that will mimic the original printf()
-					You have to recode the printf() function from libc.
-
-The prototype of ft_printf() is:
-int ft_printf(const char *, ...);
-
-Here are the requirements:
-• Don’t implement the buffer management of the original printf().
-• Your function has to handle the following conversions: cspdiuxX%
-• Your function will be compared against the original printf().
-• You must use the command ar to create your library.
-Using the libtool command is forbidden.
-• Your libftprintf.a has to be created at the root of your repository */
-#include <stdarg.h>
-
-char *findtype(const char *format, int i);
+#include "libftprintf.h"
 int	ft_printf(const char *format, ...);
+void ft_redirectfortype(const char *format, int i, va_list *ptr_copy);
 
 int	ft_printf(const char *format, ...)
 {
-	char *type;
-	int i;
+	int		i;
+	va_list	ptr;
+	va_list ptr_copy;
 	
-	type = ft_calloc(13, sizeof(char));
-	if (!type)
-		return(0);
-		
-	//first figure out if there are variables in the character string. 
+	va_start(ptr, format);
+	i = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i++] != '%')
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-			type = findtype(format, i);
-			ft_write_variable(format, type)
+			ft_redirectfortype(format, i, ptr_copy);
 		}
-		else 
-			write(1, format[i], 1);
+		else if (format[(i - 1)] != '%')
+			write(1, &format[i], 1);
 		i++;
 	}
-	
+	va_end(ptr);
+	return (0);
 }
 
-char *findtype(const char *format, int i)
+void ft_redirectfortype(const char *format, int i, va_list *ptr_copy)
 {
 	i++;
-	if (format[i] == 'c')
-		return ("char");
-	if (format[i] == 's')
-		return ("char *")
-	if (format[i] == 'p')
-		return ("void *");
-	if (format[i] == 'd')
-		return ("float");
-	if (format[i] == 'i')
-		return ("int");
-	if (format[i] == 'u')
-		return ("unsigned int");
-	if (format[i] == 'x')
-		return ("hex");
-	if (format[i] == 'X')
-		return ("HEX");
-	else
-		return ("");
-}
-
-void ft_write_variable(const char *format, char *type)
-{
-	char c;
-	char *s;
-	void *p;
-	va_list ptr;
-	if (strcmp(type, "char") == 0)
-	{
-		c = va_arg(ptr, char);
-		write(1, &c, 1);
-	}
-	if (strcmp(type, "char *") == 0)
-	{
-		s = va_arg(ptr, char *);
-		write(1, s, ft_strlen(s));
-	}
-	if (strcmp(type, "void *") == 0)
-	{
-		s = "voidpointerlol";
-		write(1, s, ft_strlen(s));
-	}
-	else
-		ft_write_variable2(format, type);
+	if (format[i] == 'c' || format[i] == 's')
+		ft_write_char(format, i, ptr_copy);
+	if (format[i] == 'i' || format[i] == 'd' || format[i] == 'u')
+		ft_write_int(format, i, ptr_copy);
+	if (format[i] == 'p' || format[i] == 'x' || format[i] == 'X')
+		ft_write_hex(format, i, ptr_copy);
 	return;
 }
 
-void ft_write_variable2(const char *format, char *type)
-{
-	float d;
-	int i;
-	unsigned int u;
-	va_list ptr;
-
-	if (strcmp(type, "float") == 0)
-	{
-		d = va_arg(ptr, float);
-		write(1, &d, 1);
-	}
-	if (strcmp(type, "char") == 0)
-	{
-		c = va_arg(ptr, char);
-		write(1, &c, 1);
-	}
-	if (strcmp(type, "char") == 0)
-	{
-		c = va_arg(ptr, char);
-		write(1, &c, 1);
-	}
-}
 /* 
 1: How does a variadic function work?
 A variadic function takes an unspecified amount of parameters into the 

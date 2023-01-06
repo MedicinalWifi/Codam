@@ -6,7 +6,7 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 14:27:09 by lhop          #+#    #+#                 */
-/*   Updated: 2023/01/05 12:50:58 by lhop          ########   odam.nl         */
+/*   Updated: 2023/01/06 14:47:04 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
+void 	ft_write_char(const char *format, int i, va_list ptr_copy);
+void 	ft_write_int(const char *format, int i, va_list ptr);
+void 	ft_write_hex(const char *format, int i, va_list ptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isalpha(int c);
