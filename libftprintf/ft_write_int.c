@@ -6,89 +6,94 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/06 11:34:13 by lhop          #+#    #+#                 */
-/*   Updated: 2023/01/06 14:41:25 by lhop          ########   odam.nl         */
+/*   Updated: 2023/01/19 15:23:23 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void ft_write_int(const char *format, int i, va_list ptr)
+void	ft_write_int(const char *format, int i, int data, int *str_ln)
 {
-	char *s;
-	float f;
-	if (format[i] == 'i')
+	char	*s;
+
+	if (format[i] == 'i' || format[i] == 'd')
 	{
-		s = malloc((ft_strlen(ft_itoa(va_arg(ptr, int)))) * (sizeof(char)));
+		s =  ft_itoa(data);
 		if (!s)
-			return;
-		s = ft_itoa(va_arg(ptr, int));
-		write(1, &s, ft_strlen(s));
+			return ;
+		*str_ln += ft_strlen(s);
+		write(1, s, ft_strlen(s));
 		free(s);
 	}
-	if (format[i] == 'd')
+	if (format[i] == 'u')
 	{
-		s = malloc((ft_strlen(ft_itoa(va_arg(ptr, int)))) * (sizeof(char)));
+		if (data < 0)
+			data *= -1;
+		s =  ft_itoa(data);
 		if (!s)
-			return;
-		
-		f = va_arg(ptr, float);
-		s = ft_floattostring(f);
-		write(1, &s, ft_strlen(s));
+			return ;
+		*str_ln += ft_strlen(s);
+		write(1, s, ft_strlen(s));
 		free(s);
-	}
-	return;
+	} 
+	return ;
 }
 
-char *ft_floattostring(float f)
+/* 
+char	*ft_floattostring(float f, char *s);
+int		ft_countnumsize(float f);
+char	*ft_multiplyfloat(float f, char *postdecimal, int numsize);
+
+char	*ft_floattostring(float f, char *s)
 {
-	char		*whole;
 	char		*predecimal;
 	char		*postdecimal;
-	int			i;
 	int			numsize;
-	
+
 	numsize = ft_countnumsize(f);
-	predecimal = malloc(ft_strlen(ft_itoa(f)) * sizeof(char));
-	postdecimal = calloc(6, sizeof(char));
-	whole = calloc((ft_strlen(ft_itoa(f)) + 7), sizeof(char));
-	if (!predecimal || !postdecimal || !whole)
-		return(NULL);
+	predecimal = ft_calloc(ft_strlen(ft_itoa(f)), sizeof(char));
+	postdecimal = ft_calloc(6, sizeof(char));
+	free((void *)s);
+	s = ft_calloc((ft_strlen(ft_itoa(f)) + 7), sizeof(char));
+	if (!predecimal || !postdecimal)
+		return (NULL);
 	predecimal = ft_itoa(f);
-	postdecimal = multiplyfloat(f, postdecimal, numsize);
-	strlcat(whole, predecimal, (size_t)numsize + 1);
-	strlcat(whole, postdecimal, (size_t)numsize + 7);
-    return(whole);
+	postdecimal = ft_multiplyfloat(f, postdecimal, numsize);
+	ft_strlcat(s, predecimal, (size_t)(numsize + 1));
+	ft_strlcat(s, postdecimal, (size_t)(numsize + 7));
+	free((void *)postdecimal);
+	free((void *)predecimal);
+	return (s);
 }
 
 int	ft_countnumsize(float f)
 {
-    int numsize;
-    numsize = 0;
-	int i;
+	int		numsize;
+	int		i;
+
 	i = f;
-    
-    while (i > 0)
-    {
-    	i = i / 10;
-        numsize++;
-    }
-	return(numsize);
+	numsize = 0;
+	while (i > 0)
+	{
+		i = i / 10;
+		numsize++;
+	}
+	return (numsize);
 }
 
-char *ft_multiplyfloat(float f, char *postdecimal, int numsize)
+char	*ft_multiplyfloat(float f, char *postdecimal, int numsize)
 {
-	char *wholenumber;
-	int wholenumbersize;
-	int	pd_i;
-	int	wn_i;
-	
+	char	*wholenumber;
+	int		wholenumbersize;
+	int		pd_i;
+	int		wn_i;
+
 	pd_i = 1;
 	wn_i = numsize;
-	wholenumber = calloc(20, sizeof(char));
+	wholenumber = ft_calloc(20, sizeof(char));
 	f = f * 10000;
 	wholenumber = ft_itoa(f);
 	wholenumbersize = ft_strlen(wholenumber);
-	
 	postdecimal[0] = '.';
 	while (wholenumber != '\0' && pd_i <= 5)
 	{
@@ -96,5 +101,18 @@ char *ft_multiplyfloat(float f, char *postdecimal, int numsize)
 		pd_i++;
 		wn_i++;
 	}
-	return(postdecimal);
+	free((void *)wholenumber);
+	return (postdecimal);
 }
+
+if (format[i] == 'd') // float is not a thing
+	{
+		f = (float)data;
+		s = malloc((ft_strlen(ft_itoa(f))) * (sizeof(char)));
+		if (!s)
+			return ;
+		s = ft_floattostring(f, s);
+		*str_ln += ft_strlen(s);
+		write(1, s, ft_strlen(s));
+		free(s);
+	} */

@@ -6,7 +6,7 @@
 #    By: lhop <lhop@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/14 12:33:37 by lhop          #+#    #+#                  #
-#    Updated: 2023/01/05 12:31:59 by lhop          ########   odam.nl          #
+#    Updated: 2023/01/10 13:58:49 by lhop          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,19 @@ SRCS		= ft_toupper.c ft_tolower.c ft_isalpha.c \
 				ft_strrchr.c ft_strncmp.c ft_memchr.c \
 				ft_memcmp.c ft_memset.c ft_memcpy.c \
 				ft_memmove.c ft_atoi.c ft_bzero.c \
-				ft_calloc.c ft_strdup.c ft_putendl_fd.c\
-				ft_substr.c ft_strjoin.c ft_putchar_fd.c\
+				ft_calloc.c ft_strdup.c ft_putendl_fd.c \
+				ft_substr.c ft_strjoin.c ft_putchar_fd.c \
 				ft_putstr_fd.c ft_itoa.c ft_putnbr_fd.c \
 				ft_striteri.c ft_strmapi.c ft_strtrim.c \
-				ft_split.c \ ft_printf.c \
+				ft_split.c ft_printf.c ft_write_char.c \
+				ft_write_hex.c ft_write_int.c ft_write_pointer.c \
+				ft_write_string.c \
 
 OBJS		?= $(SRCS:.c=.o)
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
-CPPFLAGS	= -I ../libft/libft.h
+CPPFLAGS	= -I ../printf/printf.h
 
 RM			= rm -f
 
