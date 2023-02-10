@@ -6,9 +6,13 @@
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 12:15:00 by lhop          #+#    #+#                 */
-/*   Updated: 2023/02/07 15:21:00 by lhop          ########   odam.nl         */
+/*   Updated: 2023/02/10 14:45:12 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 20
+#endif
 
 #include "get_next_line.h"
 
@@ -23,9 +27,13 @@ char *get_next_line(int fd)
 	char			*buf;
 	static char		*nextline;
 
-	static_buf = NULL;
-	nextline = NULL;
-	buf = NULL;
+	static_buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));//I malloc BUFFER_SIZE plus space for null terminator, because there will never be more space needed than that.
+		if (!buf)
+			return (NULL);
+	nextline = malloc(BUFFER_SIZE + 1 * sizeof(char));
+		if (nextline == NULL)
+			return(NULL);
 	if (fd == 0 || BUFFER_SIZE < 0)//these are my checks to see if the read/write is even possible with current fd and bufsize.
 		return (NULL);
 	if (buf == NULL)
@@ -35,18 +43,13 @@ char *get_next_line(int fd)
 			return (NULL);
 		buf[BUFFER_SIZE + 1] = '\0';	
 	}
-	if (nextline == NULL)
+/* 	if (nextline == NULL)
 	{
-		nextline = malloc(BUFFER_SIZE + 1 * sizeof(char));
-		if (nextline == NULL)
-			return(NULL);
-		nextline[BUFFER_SIZE + 1] = '\0';
-	}
-	if (static_buf == NULL)
-		read(fd, buf, BUFFER_SIZE);
 		
+		nextline[BUFFER_SIZE + 1] = '\0';
+	} */
+	read(fd, buf, BUFFER_SIZE);
 	nextline = assemble_return(fd, static_buf, buf, nextline);
-	
 	return (nextline);
 }
 
@@ -113,9 +116,9 @@ char *write_next_line(char *nextline, char *buf, char *static_buf, int i)
 char *write_static_buf(char *buf, char *static_buf, int i)
 {
 	int	i2;
-	int i3;
-	int i4;
-	
+	int	i3;
+	int	i4;
+
 	i2 = 0;
 	i3 = i;
 	i4 = 0;
@@ -144,9 +147,13 @@ int	main(void)
 
 	path = "/Users/lhop/Desktop/Get_Next_Line/test.txt";
 	fd = open(path, O_RDONLY);
-	printf("|| END OF OPERATION 1 ||\n|| First line: %s || \n\n", get_next_line(fd));
-	printf("|| END OF OPERATION 2 ||\n|| Second line: %s || \n\n", get_next_line(fd));
-	printf("|| END OF OPERATION 3 ||\n|| Third line: %s || \n\n", get_next_line(fd));
-	printf("|| END OF OPERATION 4 ||\n|| Fourth line: %s || \n\n", get_next_line(fd));
+	printf("|| END OF OPERATION 1 ||\n|| First line: %s || \n\n", 
+	get_next_line(fd));
+	printf("|| END OF OPERATION 2 ||\n|| Second line: %s || \n\n", 
+	get_next_line(fd));
+	printf("|| END OF OPERATION 3 ||\n|| Third line: %s || \n\n", 
+	get_next_line(fd));
+	printf("|| END OF OPERATION 4 ||\n|| Fourth line: %s || \n\n", 
+	get_next_line(fd));
 	return (1);
 }

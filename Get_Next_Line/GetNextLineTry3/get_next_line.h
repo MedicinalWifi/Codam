@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: lhop <lhop@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/07 12:14:37 by lhop          #+#    #+#                 */
-/*   Updated: 2023/02/09 12:54:30 by lhop          ########   odam.nl         */
+/*   Created: 2023/02/09 15:42:36 by lhop          #+#    #+#                 */
+/*   Updated: 2023/02/10 16:02:09 by lhop          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
+int		ft_strlen(char *string);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif
